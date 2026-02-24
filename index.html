@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Website</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      background: #f9f9f9;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      background: #1a1a2e;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      color: #e94560;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav ul a:hover { color: #e94560; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero h1 span { color: #e94560; }
+    .hero p { font-size: 1.2rem; color: #aaa; margin-bottom: 2rem; }
+    .btn {
+      display: inline-block;
+      background: #e94560;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s, background 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn:hover { background: #c73652; transform: scale(1.05); }
+
+    /* ── ABOUT ── */
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      padding: 5rem 10%;
+      background: white;
+    }
+    .about img {
+      width: 280px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .about-text h2 { font-size: 2rem; margin-bottom: 1rem; color: #1a1a2e; }
+    .about-text p { line-height: 1.8; color: #555; }
+
+    /* ── SERVICES ── */
+    .services {
+      padding: 5rem 10%;
+      background: #f0f0f0;
+      text-align: center;
+    }
+    .services h2 { font-size: 2rem; margin-bottom: 0.5rem; color: #1a1a2e; }
+    .services .subtitle { color: #777; margin-bottom: 3rem; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-8px); }
+    .card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .card h3 { margin-bottom: 0.5rem; color: #1a1a2e; }
+    .card p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+
+    /* ── CONTACT ── */
+    .contact {
+      padding: 5rem 10%;
+      background: white;
+      text-align: center;
+    }
+    .contact h2 { font-size: 2rem; margin-bottom: 0.5rem; color: #1a1a2e; }
+    .contact .subtitle { color: #777; margin-bottom: 2.5rem; }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    form input, form textarea {
+      padding: 0.9rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.3s;
+      font-family: inherit;
+    }
+    form input:focus, form textarea:focus { border-color: #e94560; }
+    form textarea { resize: vertical; min-height: 130px; }
+    #formMsg {
+      margin-top: 0.5rem;
+      color: green;
+      font-weight: bold;
+      display: none;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a1a2e;
+      color: #aaa;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+    footer span { color: #e94560; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .about { flex-direction: column; text-align: center; }
+      .about img { width: 100%; max-width: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#" class="logo">MyBrand</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Welcome to <span>MyWebsite</span></h1>
+    <p>A clean, modern website built with pure HTML, CSS & JavaScript.</p>
+    <a href="#contact" class="btn">Get In Touch</a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80" alt="About us" />
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>
+        We are a passionate team dedicated to creating beautiful, functional
+        websites and digital experiences. Our goal is to help businesses and
+        individuals establish a strong online presence with clean design and
+        cutting-edge technology.
+      </p>
+      <br/>
+      <p>
+        Whether you need a portfolio, a business site, or a full e-commerce
+        platform — we've got you covered.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <p class="subtitle">What we can do for you</p>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>Web Design</h3>
+        <p>Beautiful, responsive designs that look great on any device.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💻</div>
+        <h3>Development</h3>
+        <p>Clean, efficient code built with modern web technologies.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🚀</div>
+        <h3>SEO & Performance</h3>
+        <p>Optimized for speed and search engines to maximize visibility.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🛒</div>
+        <h3>E-Commerce</h3>
+        <p>Full online store solutions to grow your business online.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p class="subtitle">We'd love to hear from you!</p>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+      <p id="formMsg">✅ Message sent! We'll get back to you soon.</p>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2024 <span>MyBrand</span>. All rights reserved. Built with ❤️ using HTML, CSS & JS.</p>
+  </footer>
+
+  <script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Contact form handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (name && email && message) {
+        const msg = document.getElementById('formMsg');
+        msg.style.display = 'block';
+        this.reset();
+        setTimeout(() => msg.style.display = 'none', 4000);
+      }
+    });
+
+    // Animate cards on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(card);
+    });
+  </script>
+
+</body>
+</html>
